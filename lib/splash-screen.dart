@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'decorations.dart';
 
-import 'main.dart';
+import 'decorations.dart';
+import 'dart:async';
+
+import 'app.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,6 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _convertAsyncToNot();
       return Material(
         child: Container(
           decoration: BoxDecoration(
@@ -25,5 +28,26 @@ class _SplashScreenState extends State<SplashScreen> {
           )
         )
       );
+  }
+
+  void _convertAsyncToNot() async {
+    await _attemptLogin();
+  }
+
+  // enter login logic here instead of the sleep method
+  Future _attemptLogin () async {
+    await Future.delayed(const Duration(seconds: 2),  () => "1");
+
+    // enter the login validation conditions here
+    if (true) {
+      Navigator.popUntil(context, (route) => route.isFirst);
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            settings: const RouteSettings(name: '/'),
+            builder: (builder) => App(),
+          )
+      );
+    }
   }
 }

@@ -3,9 +3,7 @@ import 'data/user.dart';
 import 'home-page.dart';
 
 class App extends StatefulWidget {
-  App({Key key, this.user}) : super(key: key);
-
-  final User user;
+  App({Key key}) : super(key: key);
 
   @override
   _AppState createState() => _AppState();
@@ -90,7 +88,6 @@ class _AppState extends State<App> {
           ],
         ),
       ),
-      body: HomePage(),
     );
   }
 }

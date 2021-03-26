@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         hintColor: Color(0xFFc6c6c6),
         primaryColor: Color(0xFFFA716F),
-        canvasColor: Colors.transparent,
+        canvasColor: Colors.white,
       ),
       home: SplashScreen(),
     );
