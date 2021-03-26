@@ -24,9 +24,9 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Text(
               "I AM STEM",
               style: Decorations.splashScreen,
-            )
-          )
-        )
+            ),
+          ),
+        ),
       );
   }
 
@@ -36,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // enter login logic here instead of the sleep method
   Future _attemptLogin () async {
+    // replace this
     await Future.delayed(const Duration(seconds: 2),  () => "1");
 
     // enter the login validation conditions here
