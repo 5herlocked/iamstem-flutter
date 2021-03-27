@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'I AM STEM',
+      initialRoute: '/',
       theme: ThemeData(
         brightness: Brightness.light,
         hintColor: Color(0xFFc6c6c6),

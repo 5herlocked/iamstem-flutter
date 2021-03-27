@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'data/user.dart';
 import 'home-page.dart';
-import 'About Us/aboutus.dart';
+import 'about_us/about-us.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -11,6 +11,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,10 +75,8 @@ class _AppState extends State<App> {
                   Navigator.push (
                   context,
                   MaterialPageRoute(builder: (context) => AboutUs())
-
                   );
                   }
-
                   // change page to about us, then close drawer
 
             ),
