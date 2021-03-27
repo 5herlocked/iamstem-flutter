@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'data/user.dart';
 import 'home-page.dart';
+import 'About Us/aboutus.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -70,10 +71,15 @@ class _AppState extends State<App> {
                 leading: Icon(Icons.group),
                 title: Text('About Us'),
                 onTap: () {
+                  Navigator.push (
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUs())
+
+                  );
+                  }
+
                   // change page to about us, then close drawer
 
-                  Navigator.pop(context);
-                }
             ),
             ListTile(
               leading: Icon(Icons.insert_link),
