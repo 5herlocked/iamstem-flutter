@@ -1,15 +1,14 @@
-import 'dart:ui';
-
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-
-import '../app.dart';
-import '../splash-screen.dart';
 import 'package:flutter/material.dart';
 
 class AboutUs extends StatefulWidget {
   @override
   _AboutUsState createState() => _AboutUsState();
+
+  static Widget getAppBar() {
+    return AppBar(
+      title: Text("About Us"),
+    );
+  }
 }
 
 class _AboutUsState extends State<AboutUs> {

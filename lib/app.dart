@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import 'home-page.dart';
+
+import 'package:i_am_stem/about_us_page/about-us.dart';
+import 'package:i_am_stem/camp_page/connect-camp.dart';
+import 'package:i_am_stem/connect_page/connect-social.dart';
+import 'package:i_am_stem/donate_page/donate.dart';
+import 'package:i_am_stem/game_page/games.dart';
+import 'package:i_am_stem/resources_page/resources.dart';
+import 'package:i_am_stem/home-page.dart';
 
 enum Destinations {
   connect,
@@ -21,19 +28,19 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   Widget _currentBody;
-  String _currentAppBar;
+  Widget _currentAppBar;
 
   @override
   void initState() {
     super.initState();
     _currentBody = HomePage();
-    _currentAppBar = "Current Events";
+    _currentAppBar = HomePage.getAppBar();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: createAppBar(),
+      appBar: _currentAppBar,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -47,6 +54,7 @@ class _AppState extends State<App> {
               title: Text('Connect'),
               onTap: () {
                 // change page to connect page, then close drawer
+                setDestination(Destinations.connect);
                 Navigator.pop(context);
               },
             ),
@@ -55,6 +63,7 @@ class _AppState extends State<App> {
               title: Text('Donate'),
               onTap: () {
                 // change page to donate page, then close drawer
+                setDestination(Destinations.donate);
                 Navigator.pop(context);
               },
             ),
@@ -63,6 +72,7 @@ class _AppState extends State<App> {
               title: Text('Resources'),
               onTap: () {
                 // change page to resources page, then close drawer
+                setDestination(Destinations.resources);
                 Navigator.pop(context);
               },
             ),
@@ -71,6 +81,7 @@ class _AppState extends State<App> {
               title: Text('Contact Us'),
               onTap: () {
                 // change page to contact us, then close drawer
+                setDestination(Destinations.contact_us);
                 Navigator.pop(context);
               },
             ),
@@ -79,6 +90,7 @@ class _AppState extends State<App> {
                 title: Text('Games'),
                 onTap: () {
                   // change page to List<Games>, then close drawer
+                  setDestination(Destinations.games);
                   Navigator.pop(context);
                 },
             ),
@@ -87,6 +99,7 @@ class _AppState extends State<App> {
               title: Text('Camp'),
               onTap: () {
                 // change page to Camp, then close drawer
+                setDestination(Destinations.camp);
                 Navigator.pop(context);
               },
             ),
@@ -95,6 +108,7 @@ class _AppState extends State<App> {
                 title: Text('About Us'),
                 onTap: () {
                   // change page to about us, then close drawer
+                  setDestination(Destinations.about_us);
                   Navigator.pop(context);
                 },
             ),
@@ -103,6 +117,7 @@ class _AppState extends State<App> {
               title: Text('I AM STEM'),
               onTap: () {
                 // change page to I AM STEM website, then close drawer
+                setDestination(Destinations.website);
                 Navigator.pop(context);
               },
             ),
@@ -117,36 +132,36 @@ class _AppState extends State<App> {
     setState(() {
       switch (toSet) {
         case Destinations.connect:
-          // TODO: Handle this case.
+          _currentBody = ConnectSocial();
+          _currentAppBar = ConnectSocial.getAppBar();
           break;
         case Destinations.donate:
-          // TODO: Handle this case.
+          _currentBody = DonatePage();
+          _currentAppBar = DonatePage.getAppBar();
           break;
         case Destinations.resources:
-          // TODO: Handle this case.
+          _currentBody = Resources();
+          _currentAppBar = DonatePage.getAppBar();
           break;
         case Destinations.contact_us:
-          // TODO: Handle this case.
+          // TODO: Handle this case
           break;
         case Destinations.games:
-          // TODO: Handle this case.
+          _currentBody = Game();
+          _currentAppBar = Game.getAppBar();
           break;
         case Destinations.camp:
-          // TODO: Handle this case.
+          _currentBody = ConnectCamp();
+          _currentAppBar = ConnectCamp.getAppBar();
           break;
         case Destinations.about_us:
-          // TODO: Handle this case.
+          _currentBody = AboutUs();
+          _currentAppBar = AboutUs.getAppBar();
           break;
         case Destinations.website:
           // TODO: Handle this case.
           break;
       }
     });
-  }
-
-  Widget createAppBar() {
-    return AppBar(
-      title: Text(_currentAppBar),
-    );
   }
 }

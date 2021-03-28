@@ -3,12 +3,21 @@ import 'package:flutter/material.dart';
 class ConnectSocial extends StatefulWidget {
 
   _ConnectSocialState createState() => _ConnectSocialState();
+
+  static Widget getAppBar() {
+    return AppBar(
+      title: Text("Social Media"),
+    );
+  }
 }
 
 class _ConnectSocialState extends State<ConnectSocial> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    return Center(
+      child: Text("Social Media page, could have a live feed of all the I AM STEM socials"
+          "along with links to drop a follow/subscribe, etc."),
+    );
   }
 }

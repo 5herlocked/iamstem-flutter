@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Game extends StatefulWidget {
+class DonatePage extends StatefulWidget {
   @override
-  _GamePageState createState() => _GamePageState();
+  _DonatePageState createState() => _DonatePageState();
 
   static Widget getAppBar() {
     return AppBar(
-      title: Text("MiniGames"),
+      title: Text("Donate"),
     );
   }
 }
 
-class _GamePageState extends State<Game> {
+class _DonatePageState extends State<DonatePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Center(
-      child: Text("Game Page"),
+      child: Text("Donate Page"),
     );
   }
 }
