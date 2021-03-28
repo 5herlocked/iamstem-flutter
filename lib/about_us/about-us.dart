@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 
 import '../app.dart';
@@ -19,7 +20,7 @@ class _AboutUsState extends State<AboutUs> {
         child: Container(
             child: GridView.count(
                 crossAxisCount: 1,
-                padding: EdgeInsets.symmetric(vertical: 50),
+                padding: EdgeInsets.symmetric(vertical: 0),
                 children: List.generate(
                     options.length,
                     (index) => GridOptions(
@@ -78,10 +79,12 @@ class GridOptions extends StatelessWidget {
   final GridLayout layout;
   GridOptions({this.layout});
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap (
+        spacing: 10,
+        alignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.spaceAround,
         children: [
           Icon(
             layout.icon,
@@ -95,10 +98,12 @@ class GridOptions extends StatelessWidget {
           Text(layout.text,
               style: TextStyle(
                 fontSize: 18,
+                color: Colors.blueGrey,
+
               ),
           ),
         ],
-      ),
+      )
     );
   }
 }
