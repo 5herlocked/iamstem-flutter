@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 
+enum Destinations {
+  connect,
+  donate,
+  resources,
+  contact_us,
+  games,
+  camp,
+  about_us,
+  website,
+}
+
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
 
@@ -91,6 +102,37 @@ class _AppState extends State<App> {
       ),
       body: _currentBody,
     );
+  }
+
+  void setDestination(Destinations toSet) {
+    setState(() {
+      switch (toSet) {
+        case Destinations.connect:
+          // TODO: Handle this case.
+          break;
+        case Destinations.donate:
+          // TODO: Handle this case.
+          break;
+        case Destinations.resources:
+          // TODO: Handle this case.
+          break;
+        case Destinations.contact_us:
+          // TODO: Handle this case.
+          break;
+        case Destinations.games:
+          // TODO: Handle this case.
+          break;
+        case Destinations.camp:
+          // TODO: Handle this case.
+          break;
+        case Destinations.about_us:
+          // TODO: Handle this case.
+          break;
+        case Destinations.website:
+          // TODO: Handle this case.
+          break;
+      }
+    });
   }
 
   Widget createAppBar() {
