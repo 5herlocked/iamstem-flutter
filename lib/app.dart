@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'data/user.dart';
-import 'home-page.dart';
-import 'about_us/about-us.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -11,10 +8,12 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  
+  Widget _currentBody;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: createAppBar(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -28,7 +27,6 @@ class _AppState extends State<App> {
               title: Text('Connect'),
               onTap: () {
                 // change page to connect page, then close drawer
-
                 Navigator.pop(context);
               },
             ),
@@ -37,7 +35,6 @@ class _AppState extends State<App> {
               title: Text('Donate'),
               onTap: () {
                 // change page to donate page, then close drawer
-
                 Navigator.pop(context);
               },
             ),
@@ -46,7 +43,6 @@ class _AppState extends State<App> {
               title: Text('Resources'),
               onTap: () {
                 // change page to resources page, then close drawer
-
                 Navigator.pop(context);
               },
             ),
@@ -55,7 +51,6 @@ class _AppState extends State<App> {
               title: Text('Contact Us'),
               onTap: () {
                 // change page to contact us, then close drawer
-
                 Navigator.pop(context);
               },
             ),
@@ -64,34 +59,41 @@ class _AppState extends State<App> {
                 title: Text('Games'),
                 onTap: () {
                   // change page to List<Games>, then close drawer
-
                   Navigator.pop(context);
-                }
+                },
+            ),
+            ListTile(
+              leading: Icon(Icons.landscape),
+              title: Text('Camp'),
+              onTap: () {
+                // change page to Camp, then close drawer
+                Navigator.pop(context);
+              },
             ),
             ListTile(
                 leading: Icon(Icons.group),
                 title: Text('About Us'),
                 onTap: () {
-                  Navigator.push (
-                  context,
-                  MaterialPageRoute(builder: (context) => AboutUs())
-                  );
-                  }
                   // change page to about us, then close drawer
-
+                  Navigator.pop(context);
+                },
             ),
             ListTile(
               leading: Icon(Icons.insert_link),
               title: Text('I AM STEM'),
               onTap: () {
                 // change page to I AM STEM website, then close drawer
-
                 Navigator.pop(context);
               },
             ),
           ],
         ),
       ),
+      body: _currentBody,
     );
+  }
+
+  Widget createAppBar() {
+    return AppBar();
   }
 }
