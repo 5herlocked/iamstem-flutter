@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home-page.dart';
 
 enum Destinations {
   connect,
@@ -20,6 +21,14 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   Widget _currentBody;
+  String _currentAppBar;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentBody = HomePage();
+    _currentAppBar = "Current Events";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +145,8 @@ class _AppState extends State<App> {
   }
 
   Widget createAppBar() {
-    return AppBar();
+    return AppBar(
+      title: Text(_currentAppBar),
+    );
   }
 }

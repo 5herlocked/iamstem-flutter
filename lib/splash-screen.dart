@@ -21,9 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
             gradient: Decorations.backgroundGradient,
           ),
           child: Center(
-            child: Text(
-              "I AM STEM",
-              style: Decorations.splashScreen,
+            child: Image(
+              image: AssetImage('assets/ias_logo.png'),
             ),
           ),
         ),

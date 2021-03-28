@@ -9,8 +9,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    // Builds a List of
-    return ;
+    return Center(
+      child: Text("Home Page: News and Events go here"),
+    );
   }
-
 }
