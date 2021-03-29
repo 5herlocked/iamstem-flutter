@@ -27,7 +27,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to donate page, then close drawer
-              
+              Navigator.pushReplacementNamed(context, Routes.donate);
             },
           ),
           ListTile(
@@ -36,7 +36,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to resources page, then close drawer
-              
+              Navigator.pushReplacementNamed(context, Routes.resources);
             },
           ),
           ListTile(
@@ -45,7 +45,6 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to contact us, then close drawer
-              
             },
           ),
           ListTile(
@@ -54,7 +53,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to List<Games>, then close drawer
-              
+              Navigator.pushReplacementNamed(context, Routes.games);
             },
           ),
           ListTile(
@@ -63,7 +62,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to Camp, then close drawer
-              
+              Navigator.pushReplacementNamed(context, Routes.camp);
             },
           ),
           ListTile(
@@ -72,7 +71,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to about us, then close drawer
-              
+              Navigator.pushReplacementNamed(context, Routes.aboutUs);
             },
           ),
           ListTile(
@@ -81,7 +80,6 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               // change page to I AM STEM website, then close drawer
-              
             },
           ),
         ],

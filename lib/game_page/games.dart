@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:i_am_stem/navigation-drawer.dart';
 
 class Game extends StatefulWidget {
   static const String routeName = '/game';
 
   @override
   _GamePageState createState() => _GamePageState();
-
-  static Widget getAppBar() {
-    return AppBar(
-      title: Text("MiniGames"),
-    );
-  }
 }
 
 class _GamePageState extends State<Game> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-      child: Text("Game Page"),
+    return Scaffold(
+      appBar: _makeAppBar(),
+      drawer: NavigationDrawer(),
+      body: Center(
+        child: Text("This is where the Games go"),
+      ),
+    );
+  }
+
+  Widget _makeAppBar() {
+    return AppBar(
+      title: Text("MiniGames"),
     );
   }
 }
