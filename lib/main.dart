@@ -1,6 +1,9 @@
 import 'package:i_am_stem/about_us_page/about-us.dart';
 import 'package:i_am_stem/camp_page/connect-camp.dart';
 import 'package:i_am_stem/connect_page/connect-social.dart';
+import 'package:i_am_stem/donate_page/donate.dart';
+import 'package:i_am_stem/game_page/games.dart';
+import 'package:i_am_stem/resources_page/resources.dart';
 import 'package:i_am_stem/routes/routes.dart';
 
 import 'app.dart';
@@ -23,9 +26,12 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.white,
       ),
       routes: {
-        Routes.aboutUs: (context) => AboutUs(),
-        Routes.camp: (context) => ConnectCamp(),
         Routes.connectSocial: (context) => ConnectSocial(),
+        Routes.donate: (context) => Donate(),
+        Routes.resources: (context) => Resources(),
+        Routes.games: (context) => Game(),
+        Routes.camp: (context) => ConnectCamp(),
+        Routes.aboutUs: (context) => AboutUs(),
       },
       home: SplashScreen(),
     );
