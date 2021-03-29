@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_am_stem/navigation-drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement build
     return Scaffold(
       appBar: _makeAppBar(),
+      drawer: NavigationDrawer(),
       body: Center(
         child: Text("Home Page: News and Events go here"),
       ),
