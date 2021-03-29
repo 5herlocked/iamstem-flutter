@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_am_stem/about_us_page/about-us.dart';
 import 'package:i_am_stem/routes/routes.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -69,7 +70,7 @@ class NavigationDrawer extends StatelessWidget {
             leading: Icon(Icons.group),
             title: Text('About Us'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/about_us');
               // change page to about us, then close drawer
               Navigator.pushReplacementNamed(context, Routes.aboutUs);
             },

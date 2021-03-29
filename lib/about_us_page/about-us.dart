@@ -1,109 +1,310 @@
+
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:i_am_stem/navigation-drawer.dart';
 
 class AboutUs extends StatefulWidget {
   static const String routeName = '/about_us';
 
-  @override
-  _AboutUsState createState() => _AboutUsState();
 
-  static Widget getAppBar() {
-    return AppBar(
-      title: Text("About Us"),
-    );
-  }
+  _AboutUsState createState() => _AboutUsState();
 }
 
 class _AboutUsState extends State<AboutUs> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-        child: Container(
-            child: GridView.count(
-                crossAxisCount: 1,
-                padding: EdgeInsets.symmetric(vertical: 0),
-                children: List.generate(
-                    options.length,
-                    (index) => GridOptions(
-                          layout: options[index],
-                        ),
-                ),
+    final String filler = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor';
+    return Scaffold(
+      appBar: _makeAppBar(),
+      drawer: NavigationDrawer(),
+        body: Flex(
+          direction: Axis.vertical,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.build),
+                            title: Text('Vision'),
+                            subtitle: Text(filler),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.campaign),
+                            title: Text('Vision'),
+                            subtitle: Text(filler),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.description),
+                            title: Text('Description'),
+                            subtitle: Text(filler),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.supervisor_account),
+                            title: Text('Co-Organizers'),
+                            subtitle: Text(filler),
+                            onTap: () {
+                              Navigator.pop(context);
+                              // change page to Co-Organizers page, then close drawer
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.emoji_people),
+                            title: Text('Founder and Executive Director'),
+                            subtitle: Text(filler),
+                            onTap: () {
+                              Navigator.pop(context);
+                               // change page to F&ED page, then close drawer
+                             },
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                           ListTile(
+                            leading: Icon(Icons.psychology),
+                            title: Text('Advisory Board'),
+                            subtitle: Text(filler),
+                            onTap: () {
+                              Navigator.pop(context);
+                               // change page to Co-Organizers page, then close drawer
+                             },
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+          ],
+        )
+      /*body: Center(
+        child: Table(
+          border: TableBorder.all(color: Color.fromARGB(20, 0, 0, 0)),
+          children: <TableRow>[
+            TableRow(
+                children: <Widget>[
+              Row(
+                  children:[
+                      Icon(Icons.build),
+                      SizedBox(width: 20, height: screenHeight/6,),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                'Vision',
+                                style: Theme.of(context).textTheme.headline6,
+                                ),
+                            Text(
+                                'BlalalalalalBlalalalalalBlalalalalalBlalalalalalBlalalalalalBlalalalalalBlalalalalal',
+                                style: Theme.of(context).textTheme.subtitle1,
+                                softWrap: true,
+                            ),
+                          ]
+                        )
+                      )
+                    ]
+                  ),
+              ]
+            ),
+            TableRow(
+                children: [
+                  Row(
+                      children:[
+                        Icon(Icons.campaign),
+                        SizedBox(width: 10, height: screenHeight/6,),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(''),
+                                  Text(
+                                    'Statement',
+                                    style: Theme.of(context).textTheme.headline6,
+                                  ),
+                                  Text(
+                                      'Blalalalalal',
+                                      style: Theme.of(context).textTheme.subtitle1
+                                  ),
+                                ]
+                            )
+                        )
+                      ]
+                  ),
+                ]
+            ),
+            TableRow(
+                children: [
+                  Row(
+                      children:[
+                        Icon(Icons.description),
+                        SizedBox(width: 20, height: screenHeight/6,),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(''),
+                                  Text(
+                                    'Description',
+                                    style: Theme.of(context).textTheme.headline6,
+                                  ),
+                                  Text(
+                                      'Blalalalalal',
+                                      style: Theme.of(context).textTheme.subtitle1
+                                  ),
+                                ]
+                            )
+                        )
+                      ]
+                  ),
+                ]
+            ),
+            TableRow(
+                children: [
+                  TableCell(
+                    child:
+                  Row(
+                      children:[
+                        Icon(Icons.supervisor_account),
+                        SizedBox(width: 20, height: screenHeight/6,),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(''),
+                                  Text(
+                                    'Co-Organizers',
+                                    style: Theme.of(context).textTheme.headline6,
+                                  ),
+                                  Text(
+                                      'Blalalalalal',
+                                      style: Theme.of(context).textTheme.subtitle1
+                                  ),
+                                ]
+                            )
+                        )
+                      ]
+                  ),
+                  )
+                ]
+            ),
+            TableRow(
+                children: [
+                  Row(
+                      children:[
+                        Icon(Icons.emoji_people),
+                        SizedBox(width: 20, height: screenHeight/6,),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(''),
+                                  Text(
+                                    'Founder and Executive Director',
+                                    style: Theme.of(context).textTheme.headline6,
+                                  ),
+                                  Text(
+                                      'Blalalalalal',
+                                      style: Theme.of(context).textTheme.subtitle1
+                                  ),
+                                ]
+                            )
+                        )
+                      ]
+                  ),
+                ]
+            ),
+            TableRow(
+                children: [
+                  Row(
+                      children:[
+                        Icon(Icons.psychology),
+                        SizedBox(width: 20, height: screenHeight/6,),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(''),
+                                  Text(
+                                    'Advisory Board',
+                                    style: Theme.of(context).textTheme.headline6,
+                                  ),
+                                  Text(
+                                      'Blalalalalal',
+                                      style: Theme.of(context).textTheme.subtitle1
+                                  ),
+                                ]
+                            )
+                        )
+                      ]
+                  ),
+                ]
+            ),
+          ],
         ),
+      ),*/
     );
   }
-}
 
-class GridLayout {
-  final String title;
-  final IconData icon;
-  final String text;
-  static const String _title =
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor';
-  GridLayout({this.icon, this.title, this.text});
-}
-
-List<GridLayout> options = [
-  GridLayout(
-      icon: Icons.build,
-      title: ' Vision',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-  GridLayout(
-      icon: Icons.campaign,
-      title: ' Statement',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-  GridLayout(
-      icon: Icons.description,
-      title: ' Description',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-  GridLayout(
-      icon: Icons.supervisor_account,
-      title: ' Co-Organizers',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-  GridLayout(
-      icon: Icons.emoji_people,
-      title: ' Founder and Executive Director',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-  GridLayout(
-      icon: Icons.psychology,
-      title: ' Advisory Board',
-      text:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor'),
-];
-
-class GridOptions extends StatelessWidget {
-  final GridLayout layout;
-  GridOptions({this.layout});
-  Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    return Card(
-        child: Wrap (
-        spacing: 10,
-        alignment: WrapAlignment.center,
-        runAlignment: WrapAlignment.spaceAround,
-        children: [
-          Icon(
-            layout.icon,
-            size: 24,
-          ),
-          Text(layout.title,
-              style: TextStyle(
-                fontSize: 24,
-              ),
-          ),
-          Text(layout.text,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.blueGrey,
-
-              ),
-          ),
-        ],
-      )
-    );
+  Widget _makeAppBar() {
+    return AppBar(
+      title: Text("About Us"),
+      );
+    }
   }
-}
+
+
+
