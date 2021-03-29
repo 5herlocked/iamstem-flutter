@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ConnectSocial extends StatefulWidget {
+  static const String routeName = '/social';
+
 
   _ConnectSocialState createState() => _ConnectSocialState();
 

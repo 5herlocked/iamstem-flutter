@@ -1,3 +1,8 @@
+import 'package:i_am_stem/about_us_page/about-us.dart';
+import 'package:i_am_stem/camp_page/connect-camp.dart';
+import 'package:i_am_stem/connect_page/connect-social.dart';
+import 'package:i_am_stem/routes/routes.dart';
+
 import 'app.dart';
 import 'splash-screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +22,11 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFFA716F),
         canvasColor: Colors.white,
       ),
+      routes: {
+        Routes.aboutUs: (context) => AboutUs(),
+        Routes.camp: (context) => ConnectCamp(),
+        Routes.connectSocial: (context) => ConnectSocial(),
+      },
       home: SplashScreen(),
     );
   }

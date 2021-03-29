@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AboutUs extends StatefulWidget {
+  static const String routeName = '/about_us';
+
   @override
   _AboutUsState createState() => _AboutUsState();
 

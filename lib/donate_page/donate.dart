@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DonatePage extends StatefulWidget {
+class Donate extends StatefulWidget {
+  static const String routeName = '/donate';
+
   @override
-  _DonatePageState createState() => _DonatePageState();
+  _DonateState createState() => _DonateState();
 
   static Widget getAppBar() {
     return AppBar(
@@ -11,7 +13,7 @@ class DonatePage extends StatefulWidget {
   }
 }
 
-class _DonatePageState extends State<DonatePage> {
+class _DonateState extends State<Donate> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

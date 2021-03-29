@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Resources extends StatefulWidget {
+  static const String routeName = '/resources';
+
 
   @override
   _ResourcesPageState createState() => _ResourcesPageState();

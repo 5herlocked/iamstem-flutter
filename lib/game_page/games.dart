@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Game extends StatefulWidget {
+  static const String routeName = '/game';
+
   @override
   _GamePageState createState() => _GamePageState();
 

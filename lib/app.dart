@@ -5,6 +5,7 @@ import 'package:i_am_stem/camp_page/connect-camp.dart';
 import 'package:i_am_stem/connect_page/connect-social.dart';
 import 'package:i_am_stem/donate_page/donate.dart';
 import 'package:i_am_stem/game_page/games.dart';
+import 'package:i_am_stem/navigation-drawer.dart';
 import 'package:i_am_stem/resources_page/resources.dart';
 import 'package:i_am_stem/home-page.dart';
 
@@ -41,89 +42,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _currentAppBar,
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Make User Profile'),
-              decoration: BoxDecoration(color: Colors.blue),
-            ),
-            ListTile(
-              leading: Icon(Icons.rss_feed),
-              title: Text('Connect'),
-              onTap: () {
-                // change page to connect page, then close drawer
-                setDestination(Destinations.connect);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.attach_money),
-              title: Text('Donate'),
-              onTap: () {
-                // change page to donate page, then close drawer
-                setDestination(Destinations.donate);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.local_library),
-              title: Text('Resources'),
-              onTap: () {
-                // change page to resources page, then close drawer
-                setDestination(Destinations.resources);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Contact Us'),
-              onTap: () {
-                // change page to contact us, then close drawer
-                setDestination(Destinations.contact_us);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-                leading: Icon(Icons.games),
-                title: Text('Games'),
-                onTap: () {
-                  // change page to List<Games>, then close drawer
-                  setDestination(Destinations.games);
-                  Navigator.pop(context);
-                },
-            ),
-            ListTile(
-              leading: Icon(Icons.landscape),
-              title: Text('Camp'),
-              onTap: () {
-                // change page to Camp, then close drawer
-                setDestination(Destinations.camp);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-                leading: Icon(Icons.group),
-                title: Text('About Us'),
-                onTap: () {
-                  // change page to about us, then close drawer
-                  setDestination(Destinations.about_us);
-                  Navigator.pop(context);
-                },
-            ),
-            ListTile(
-              leading: Icon(Icons.insert_link),
-              title: Text('I AM STEM'),
-              onTap: () {
-                // change page to I AM STEM website, then close drawer
-                setDestination(Destinations.website);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: NavigationDrawer(),
       body: _currentBody,
     );
   }
@@ -136,12 +55,12 @@ class _AppState extends State<App> {
           _currentAppBar = ConnectSocial.getAppBar();
           break;
         case Destinations.donate:
-          _currentBody = DonatePage();
-          _currentAppBar = DonatePage.getAppBar();
+          _currentBody = Donate();
+          _currentAppBar = Donate.getAppBar();
           break;
         case Destinations.resources:
           _currentBody = Resources();
-          _currentAppBar = DonatePage.getAppBar();
+          _currentAppBar = Donate.getAppBar();
           break;
         case Destinations.contact_us:
           // TODO: Handle this case

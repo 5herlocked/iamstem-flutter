@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ConnectCamp extends StatefulWidget {
-
+  static const String routeName = '/connect_camp';
+  
   @override
   _ConnectCampState createState() => _ConnectCampState();
 
