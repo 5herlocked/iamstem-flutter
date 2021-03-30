@@ -1,4 +1,7 @@
 import 'package:i_am_stem/about_us_page/about-us.dart';
+import 'package:i_am_stem/about_us_page/advisory-board.dart';
+import 'package:i_am_stem/about_us_page/co-organizers.dart';
+import 'package:i_am_stem/about_us_page/founder-and-executive.dart';
 import 'package:i_am_stem/camp_page/connect-camp.dart';
 import 'package:i_am_stem/connect_page/connect-social.dart';
 import 'package:i_am_stem/donate_page/donate.dart';
@@ -32,6 +35,9 @@ class MyApp extends StatelessWidget {
         Routes.games: (context) => Game(),
         Routes.camp: (context) => ConnectCamp(),
         Routes.aboutUs: (context) => AboutUs(),
+        Routes.advisoryBoard: (context) => AdvisoryBoard(),
+        Routes.coOrganizers: (context) => CoOrganizers(),
+        Routes.founderExecutive: (context) => FounderExecutive(),
       },
       home: SplashScreen(),
     );
