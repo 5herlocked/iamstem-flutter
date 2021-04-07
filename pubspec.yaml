@@ -27,6 +27,17 @@ dependencies:
 
 
 
+  #A composable, multi-platform, Future-based API for HTTP requests.
+  http: ^0.13.1
+
+  http_auth: ^1.0.0
+
+
+  webview_flutter: ^2.0.3
+
+  shared_preferences: ^2.0.5
+
+
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -8,6 +8,7 @@ import 'package:i_am_stem/donate_page/donate.dart';
 import 'package:i_am_stem/game_page/games.dart';
 import 'package:i_am_stem/resources_page/resources.dart';
 import 'package:i_am_stem/routes/routes.dart';
+import 'package:i_am_stem/payment_services/PaypalServices.dart';
 
 import 'app.dart';
 import 'splash-screen.dart';
