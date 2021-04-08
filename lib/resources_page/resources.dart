@@ -28,5 +28,4 @@ class _ResourcesPageState extends State<Resources> {
       title: Text("Resources"),
     );
   }
-
 }
