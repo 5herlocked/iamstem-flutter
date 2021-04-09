@@ -12,23 +12,21 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     void createLoginForm() {
       showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          isDismissible: false,
-          builder: (builder) => LoginForm(),
+        context: context,
+        isScrollControlled: true,
+        isDismissible: false,
+        builder: (builder) => LoginForm(),
       );
     }
 
     void createRegisterForm() {
       showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          isDismissible: false,
-          builder: (builder) => RegisterForm(),
+        context: context,
+        isScrollControlled: true,
+        isDismissible: false,
+        builder: (builder) => RegisterForm(),
       );
     }
 
@@ -40,6 +38,9 @@ class _LoginPageState extends State<LoginPage> {
         resizeToAvoidBottomInset: false,
         body: Column(
           children: <Widget>[
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.4,
+            ),
             Container(
               padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Text(
@@ -49,15 +50,42 @@ class _LoginPageState extends State<LoginPage> {
               alignment: Alignment.center,
             ),
             Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.05,
+                left: 40,
+                right: 40,
+              ),
               child: Container(
-                child: ElevatedButton(
-                  onPressed: () {  },
-                  child: Text(
-
+                child: ElevatedButton.icon(
+                  autofocus: false,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Decorations.buttonColor
+                    ),
                   ),
+                  icon: Icon(Icons.login),
+                  label: Text(
+                    "Login",
+                  ),
+                  onPressed: createLoginForm,
                 ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Container(
+                child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Decorations.buttonColor
+                    ),
+                  ),
+                  icon: Icon(Icons.app_registration),
+                  label: Text("Register"),
+                  onPressed: createRegisterForm,
+                ),
+              ),
+            )
           ],
         ),
       ),

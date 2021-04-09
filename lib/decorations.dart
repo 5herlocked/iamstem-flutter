@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 
+// Credit: A Lot of these decorations were picked originally
+// by Avneet Sethi for Mobile Application Development in
+// Spring 2020
+
+// But the best part (compiling them all in one place)
+// was my own idea (Shardul Vaidya). This allows the entire
+// app to change look and colours schemes by editing a single file
 class Decorations {
   // colors
   static var accentColour = Color(0xFFFA716F);
+
+  static var buttonColor = Color(0xFFFA726F);
 
   // text styles
   static var splashScreen = TextStyle(
@@ -86,31 +95,4 @@ class Decorations {
         0.75,
       ]
   );
-
-  static InputDecoration createInputDecoration(IconData prefixIcon, String label) {
-    return InputDecoration(
-      prefixIcon: prefixIcon != null? Icon(prefixIcon): Icon(null),
-      fillColor: Colors.white,
-      filled: true,
-      labelText: "$label",
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Decorations.accentColour,
-        ),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      disabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey,
-        ),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.grey,
-        ),
-        borderRadius: BorderRadius.circular(5),
-      ),
-    );
-  }
 }
