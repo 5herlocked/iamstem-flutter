@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_am_stem/decorations.dart';
 
 import 'login_form.dart';
 import 'register_form.dart';
@@ -31,6 +32,35 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
 
-    return ;
+    return Container(
+      decoration: BoxDecoration(
+        gradient: Decorations.backgroundGradient,
+      ),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                "I AM STEM",
+                style: Decorations.splashScreen,
+              ),
+              alignment: Alignment.center,
+            ),
+            Padding(
+              child: Container(
+                child: ElevatedButton(
+                  onPressed: () {  },
+                  child: Text(
+
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
