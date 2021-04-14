@@ -13,7 +13,6 @@ class AdvisoryBoard extends StatefulWidget {
 }
 
 class _AdvisoryBoardState extends State<AdvisoryBoard> {
-  @override
   final String filler = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor';
   Widget build(BuildContext context) {
     return Scaffold(

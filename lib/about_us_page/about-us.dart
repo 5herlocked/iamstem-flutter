@@ -71,12 +71,14 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                   Expanded(
                     child: Card(
+                      color: Color.fromARGB(5, 220, 220, 220),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                            ListTile(
                             leading: Icon(Icons.supervisor_account),
                             title: Text('Co-Organizers'),
+
                             subtitle: Text(filler),
                             onTap: () {
                               Navigator.pushReplacementNamed(context, Routes.coOrganizers);
@@ -89,12 +91,14 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                   Expanded(
                     child: Card(
+                      color: Color.fromARGB(5, 220, 220, 220),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                            ListTile(
                             leading: Icon(Icons.emoji_people),
                             title: Text('Founder and Executive Director'),
+
                             subtitle: Text(filler),
                             onTap: () {
                               Navigator.pushReplacementNamed(context, Routes.founderExecutive);
@@ -107,12 +111,14 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                   Expanded(
                     child: Card(
+                      color: Color.fromARGB(5, 220, 220, 220),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                            ListTile(
                             leading: Icon(Icons.psychology),
                             title: Text('Advisory Board'),
+
                             subtitle: Text(filler),
                             onTap: () {
                               Navigator.pushReplacementNamed(context, Routes.advisoryBoard);
