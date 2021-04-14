@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_am_stem/login_page/login_page.dart';
 
 import 'decorations.dart';
 import 'dart:async';
@@ -45,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
           context,
           MaterialPageRoute(
             settings: const RouteSettings(name: '/'),
-            builder: (builder) => App(),
+            builder: (builder) => LoginPage(),
           )
       );
     }
