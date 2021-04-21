@@ -98,7 +98,7 @@ class _AdvisoryBoardState extends State<AdvisoryBoard> {
   }
 }
 
-Widget _makeAppBar() {
+PreferredSizeWidget _makeAppBar() {
   return AppBar(
     title: Text("Advisory Board"),
   );

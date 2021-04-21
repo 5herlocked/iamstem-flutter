@@ -114,7 +114,7 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
               ),
               enabled: true,
               cursorColor: Decorations.accentColour,
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
               onSaved: (input) => _email = input,
             ),
           ),
@@ -133,7 +133,7 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
               enabled: true,
               obscureText: true,
               // TODO: Change password requirements to whatever
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
               onSaved: (input) => _password = input,
             ),
           ),
