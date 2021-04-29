@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../decorations.dart';
+import '../main.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -86,8 +87,8 @@ class MyLoginForm extends StatefulWidget {
 class _MyLoginFormState extends State<MyLoginForm> {
   final _formkey = GlobalKey<FormState>();
 
-  var _email;
-  var _password;
+  final _email = TextEditingController();
+  final _password = TextEditingController();
 
   bool _loading = false;
 
@@ -112,10 +113,10 @@ class _MyLoginFormState extends State<MyLoginForm> {
                 filled: true,
                 labelText: "Email ID",
               ),
+              controller: _email,
               enabled: true,
               cursorColor: Decorations.accentColour,
               validator: (input) => input.isEmpty ? "* Required" : null,
-              onSaved: (input) => _email = input,
             ),
           ),
           Padding(
@@ -130,11 +131,11 @@ class _MyLoginFormState extends State<MyLoginForm> {
                 prefixIcon: Icon(Icons.lock),
                 labelText: "Password",
               ),
+              controller: _password,
               enabled: true,
               obscureText: true,
               // TODO: Change password requirements to whatever
               validator: (input) => input.isEmpty ? "* Required" : null,
-              onSaved: (input) => _password = input,
             ),
           ),
           Padding(
@@ -171,6 +172,16 @@ class _MyLoginFormState extends State<MyLoginForm> {
   }
 
   void _initateLogin() async {
-    //TODO: Do registration stuff here
+    var user;
+        FirebaseAuth.instance.signInWithEmailAndPassword(email:_email.text,password:_password.text)
+    .then((value) => {Navigator.popUntil(context, (route) => route.isFirst),
+                       Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                    settings: const RouteSettings(name: '/home-page'),
+                    builder: (builder) => MyApp(),
+                    )
+                    )});
+    print(user);
   }
 }

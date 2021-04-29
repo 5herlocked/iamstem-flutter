@@ -5,6 +5,7 @@ import 'login_form.dart';
 import 'register_form.dart';
 
 class LoginPage extends StatefulWidget {
+  static const String routeName = '/login';
   @override
   _LoginPageState createState() => _LoginPageState();
 }

@@ -6,6 +6,7 @@ import 'package:i_am_stem/camp_page/connect-camp.dart';
 import 'package:i_am_stem/connect_page/connect-social.dart';
 import 'package:i_am_stem/donate_page/donate.dart';
 import 'package:i_am_stem/game_page/games.dart';
+import 'package:i_am_stem/login_page/login_page.dart';
 import 'package:i_am_stem/resources_page/resources.dart';
 import 'package:i_am_stem/routes/routes.dart';
 import 'package:i_am_stem/payment_services/PaypalServices.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         Routes.advisoryBoard: (context) => AdvisoryBoard(),
         Routes.coOrganizers: (context) => CoOrganizers(),
         Routes.founderExecutive: (context) => FounderExecutive(),
+        Routes.loginPage: (context) => LoginPage(),
       },
       home: SplashScreen(),
     );

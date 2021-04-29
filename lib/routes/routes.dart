@@ -7,6 +7,7 @@ import 'package:i_am_stem/connect_page/connect-social.dart';
 import 'package:i_am_stem/donate_page/donate.dart';
 import 'package:i_am_stem/game_page/games.dart';
 import 'package:i_am_stem/resources_page/resources.dart';
+import 'package:i_am_stem/login_page/login_page.dart';
 
 class Routes {
   static const String connectSocial = ConnectSocial.routeName;
@@ -18,4 +19,5 @@ class Routes {
   static const String advisoryBoard = AdvisoryBoard.routeName;
   static const String coOrganizers = CoOrganizers.routeName;
   static const String founderExecutive = FounderExecutive.routeName;
+  static const String loginPage = LoginPage.routeName;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../decorations.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -86,8 +86,8 @@ class MyRegisterForm extends StatefulWidget {
 class _MyRegisterFormState extends State<MyRegisterForm> {
   final _formkey = GlobalKey<FormState>();
 
-  var _email;
-  var _password;
+  final _email = TextEditingController();
+  final _password = TextEditingController();
 
   bool _loading = false;
 
@@ -111,11 +111,12 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
                 fillColor: Colors.white,
                 filled: true,
                 labelText: "Email ID",
+                
               ),
+              controller: _email,
               enabled: true,
               cursorColor: Decorations.accentColour,
               validator: (input) => input.isEmpty ? "* Required" : null,
-              onSaved: (input) => _email = input,
             ),
           ),
           Padding(
@@ -130,11 +131,11 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
                 prefixIcon: Icon(Icons.lock),
                 labelText: "Password",
               ),
+              controller: _password,
               enabled: true,
               obscureText: true,
               // TODO: Change password requirements to whatever
               validator: (input) => input.isEmpty ? "* Required" : null,
-              onSaved: (input) => _password = input,
             ),
           ),
           Padding(
@@ -171,6 +172,9 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
   }
 
   void _initateRegister() async {
-    //TODO: Do registration stuff here
+    print(_email.text);
+    print("HI");
+    FirebaseAuth.instance.createUserWithEmailAndPassword(email:_email.text,password:_password.text)
+    .then((value) => {Navigator.pushReplacementNamed(context, "/login")});
   }
 }
