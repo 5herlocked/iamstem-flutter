@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../decorations.dart';
 import '../main.dart';
+import '../app.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -176,12 +177,12 @@ class _MyLoginFormState extends State<MyLoginForm> {
         FirebaseAuth.instance.signInWithEmailAndPassword(email:_email.text,password:_password.text)
     .then((value) => {Navigator.popUntil(context, (route) => route.isFirst),
                        Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                    settings: const RouteSettings(name: '/home-page'),
-                    builder: (builder) => MyApp(),
-                    )
-                    )});
+          context,
+          MaterialPageRoute(
+            settings: const RouteSettings(name: '/'),
+            builder: (builder) => App(),
+          )
+      )});
     print(user);
   }
 }
