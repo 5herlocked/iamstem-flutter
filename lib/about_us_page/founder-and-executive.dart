@@ -55,7 +55,7 @@ class _FounderExecutiveState extends State<FounderExecutive> {
   }
 }
 
-Widget _makeAppBar() {
+PreferredSizeWidget _makeAppBar() {
   return AppBar(
     title: Text("Executive Director"),
   );

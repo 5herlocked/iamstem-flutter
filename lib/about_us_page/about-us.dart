@@ -131,7 +131,7 @@ class _AboutUsState extends State<AboutUs> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("About Us"),
       );

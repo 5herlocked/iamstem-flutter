@@ -22,7 +22,7 @@ class _ConnectSocialState extends State<ConnectSocial> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("Social Media"),
     );

@@ -52,7 +52,7 @@ class _DonateState extends State<Donate> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("Donate"),
     );
