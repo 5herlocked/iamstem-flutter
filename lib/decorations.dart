@@ -27,7 +27,7 @@ class Decorations {
     fontFamily: 'Raleway',
     fontWeight: FontWeight.w500,
     color: Colors.black,
-  )
+  );
 
   static var headline = TextStyle(
     fontSize: 20,

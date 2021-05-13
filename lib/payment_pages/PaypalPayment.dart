@@ -7,7 +7,7 @@ import '../payment_services/PaypalServices.dart';
 class PaypalPayment extends StatefulWidget {
   final Function onFinish;
 
-  PaypalPayment({this.onFinish});
+  PaypalPayment({required this.onFinish});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,9 +17,9 @@ class PaypalPayment extends StatefulWidget {
 
 class PaypalPaymentState extends State<PaypalPayment> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String checkoutUrl;
-  String executeUrl;
-  String accessToken;
+  String checkoutUrl = "";
+  String executeUrl = "";
+  String accessToken = "";
   PaypalServices services = PaypalServices();
 
   // you can change default currency according to your need
@@ -38,19 +38,18 @@ class PaypalPaymentState extends State<PaypalPayment> {
 
     Future.delayed(Duration.zero, () async {
       try {
-        accessToken = await services.getAccessToken();
+        accessToken = (await services.getAccessToken())!;
 
         final transactions = getOrderParams();
         final res =
             await services.createPaypalPayment(transactions, accessToken);
         if (res != null) {
           setState(() {
-            checkoutUrl = res["approvalUrl"];
-            executeUrl = res["executeUrl"];
+            checkoutUrl = res["approvalUrl"]!;
+            executeUrl = res["executeUrl"]!;
           });
         }
       } catch (e) {
-        print('exception: '+e.toString());
         final snackBar = SnackBar(
           content: Text(e.toString()),
           duration: Duration(seconds: 10),
@@ -66,7 +65,7 @@ class PaypalPaymentState extends State<PaypalPayment> {
     });
   }
 
-  // item name, price and quantity
+  // item name, price and quantity(This is dummy data details will be collected from UI on later changes)
   String itemName = 'iPhone X';
   String itemPrice = '1.99';
   int quantity = 1;
@@ -82,7 +81,7 @@ class PaypalPaymentState extends State<PaypalPayment> {
     ];
 
 
-    // checkout invoice details
+    // checkout invoice details (This is a dummy data details will be collected from UI on later stages)
     String totalAmount = '1.99';
     String subTotalAmount = '1.99';
     String shippingCost = '0';
@@ -143,11 +142,11 @@ class PaypalPaymentState extends State<PaypalPayment> {
     return temp;
   }
 
+// building the webview with the checkout url generated in paypalservices
   @override
   Widget build(BuildContext context) {
-    print(checkoutUrl);
 
-    if (checkoutUrl != null) {
+    if (checkoutUrl !="") {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).backgroundColor,
@@ -173,7 +172,6 @@ class PaypalPaymentState extends State<PaypalPayment> {
               } else {
                 Navigator.of(context).pop();
               }
-              Navigator.of(context).pop();
             }
             if (request.url.contains(cancelURL)) {
               Navigator.of(context).pop();

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'I AM STEM',
       initialRoute: '/',
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         hintColor: Color(0xFFc6c6c6),
         primaryColor: Color(0xFFFA716F),
         canvasColor: Colors.transparent,

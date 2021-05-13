@@ -117,7 +117,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
               controller: _email,
               enabled: true,
               cursorColor: Decorations.accentColour,
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
             ),
           ),
           Padding(
@@ -136,7 +136,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
               enabled: true,
               obscureText: true,
               // TODO: Change password requirements to whatever
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
             ),
           ),
           Padding(
@@ -173,6 +173,7 @@ class _MyLoginFormState extends State<MyLoginForm> {
   }
 
   void _initateLogin() async {
+    // Validating the login credentials with firebase auth
     var user;
         FirebaseAuth.instance.signInWithEmailAndPassword(email:_email.text,password:_password.text)
     .then((value) => {Navigator.popUntil(context, (route) => route.isFirst),
@@ -180,9 +181,8 @@ class _MyLoginFormState extends State<MyLoginForm> {
           context,
           MaterialPageRoute(
             settings: const RouteSettings(name: '/'),
-            builder: (builder) => App(),
+            builder: (builder) => App(key: null,),
           )
       )});
-    print(user);
   }
 }

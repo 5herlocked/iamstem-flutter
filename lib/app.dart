@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i_am_stem/home-page.dart';
 
 class App extends StatefulWidget {
-  App({required Key key}) : super(key: key);
+  App({Key? key}) : super(key: key);
 
   @override
   _AppState createState() => _AppState();

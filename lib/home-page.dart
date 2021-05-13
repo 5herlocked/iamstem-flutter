@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             flex: 5,
           ),
           ListView.builder(
-            itemCount: _eventList!.length,
+            itemCount: _eventList?.length,
             itemBuilder: _generateListEvents,
           ),
         ],

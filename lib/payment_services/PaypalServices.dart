@@ -2,6 +2,8 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:http_auth/http_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class PaypalServices {
 
@@ -9,13 +11,22 @@ class PaypalServices {
 //  String domain = "https://api.paypal.com"; // for production mode
 
   // change clientId and secret with your own, provided by paypal
-  String clientId = 'AUQWDenJ8NExQu7_Z1yORFSBlLtOY2bfyoOKGDsNBtjEgkp7rYwP1oD2lXR7RG6I3v4aNXwSSmOBkdZN';
-  String secret = 'EH-REqYOQ2QL_Q16LWU8JPDs8g3O08VtmJcQ7Bexvm9YmGg1luhDOIuH420sluS6i_9Jy5BeKXCM_bYx';
+ 
+  
 
+String clientId = "";
+String secret = "";
   // for getting the access token from Paypal
-  Future<String> getAccessToken() async {
+  Future<String?> getAccessToken() async {
+    // getting secrets from firebase db
+    var document = await FirebaseFirestore.instance.collection('secrets').doc('q9ff643oFBWTJSzbmb2C');
     try {
-      var client = BasicAuthClient(clientId, secret);
+      await document.get().then((docu)
+  {
+    this.clientId = docu.data()!['clientId'];
+    this.secret = docu.data()!['secret'];
+  });
+      var client = BasicAuthClient(this.clientId, this.secret);
       final _params = {"grant_type":"client_credentials"};
       var response = await client.post(Uri.https("$domain","/v1/oauth2/token",_params));
       if (response.statusCode == 200) {
@@ -29,7 +40,7 @@ class PaypalServices {
   }
 
   // for creating the payment request with Paypal
-  Future<Map<String, String>> createPaypalPayment(
+  Future<Map<String, String>?> createPaypalPayment(
       transactions, accessToken) async {
     try {
       var response = await http.post(Uri.https("$domain","/v1/payments/payment"),
@@ -68,7 +79,7 @@ class PaypalServices {
   }
 
   // for executing the payment transaction
-  Future<String> executePayment(url, payerId, accessToken) async {
+  Future<String?> executePayment(url, payerId, accessToken) async {
     try {
       var response = await http.post(url,
           body: convert.jsonEncode({"payer_id": payerId}),

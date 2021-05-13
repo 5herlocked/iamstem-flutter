@@ -116,7 +116,7 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
               controller: _email,
               enabled: true,
               cursorColor: Decorations.accentColour,
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
             ),
           ),
           Padding(
@@ -135,7 +135,7 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
               enabled: true,
               obscureText: true,
               // TODO: Change password requirements to whatever
-              validator: (input) => input.isEmpty ? "* Required" : null,
+              validator: (input) => input!.isEmpty ? "* Required" : null,
             ),
           ),
           Padding(
@@ -172,8 +172,8 @@ class _MyRegisterFormState extends State<MyRegisterForm> {
   }
 
   void _initateRegister() async {
-    print(_email.text);
-    print("HI");
+    // Creating a new user with firebase auth
+
     FirebaseAuth.instance.createUserWithEmailAndPassword(email:_email.text,password:_password.text)
     .then((value) => {Navigator.pushReplacementNamed(context, "/login")});
   }
