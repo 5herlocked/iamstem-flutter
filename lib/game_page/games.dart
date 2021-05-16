@@ -21,7 +21,7 @@ class _GamePageState extends State<Game> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("MiniGames"),
     );

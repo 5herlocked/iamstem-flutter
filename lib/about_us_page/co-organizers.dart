@@ -98,7 +98,7 @@ class _CoOrganizersState extends State<CoOrganizers> {
   }
 }
 
-Widget _makeAppBar() {
+PreferredSizeWidget _makeAppBar() {
   return AppBar(
     title: Text("Co-Organizers"),
   );

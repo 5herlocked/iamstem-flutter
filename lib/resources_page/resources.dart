@@ -23,10 +23,9 @@ class _ResourcesPageState extends State<Resources> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("Resources"),
     );
   }
-
 }

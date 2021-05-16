@@ -6,8 +6,10 @@ import 'package:i_am_stem/camp_page/connect-camp.dart';
 import 'package:i_am_stem/connect_page/connect-social.dart';
 import 'package:i_am_stem/donate_page/donate.dart';
 import 'package:i_am_stem/game_page/games.dart';
+import 'package:i_am_stem/login_page/login_page.dart';
 import 'package:i_am_stem/resources_page/resources.dart';
 import 'package:i_am_stem/routes/routes.dart';
+import 'package:i_am_stem/payment_services/PaypalServices.dart';
 
 import 'app.dart';
 import 'splash-screen.dart';
@@ -23,10 +25,10 @@ class MyApp extends StatelessWidget {
       title: 'I AM STEM',
       initialRoute: '/',
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         hintColor: Color(0xFFc6c6c6),
         primaryColor: Color(0xFFFA716F),
-        canvasColor: Colors.white,
+        canvasColor: Colors.transparent,
       ),
       routes: {
         Routes.connectSocial: (context) => ConnectSocial(),
@@ -38,6 +40,7 @@ class MyApp extends StatelessWidget {
         Routes.advisoryBoard: (context) => AdvisoryBoard(),
         Routes.coOrganizers: (context) => CoOrganizers(),
         Routes.founderExecutive: (context) => FounderExecutive(),
+        Routes.loginPage: (context) => LoginPage(),
       },
       home: SplashScreen(),
     );

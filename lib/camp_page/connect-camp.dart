@@ -21,7 +21,7 @@ class _ConnectCampState extends State<ConnectCamp> {
     );
   }
 
-  Widget _makeAppBar() {
+  PreferredSizeWidget _makeAppBar() {
     return AppBar(
       title: Text("Camp"),
     );
